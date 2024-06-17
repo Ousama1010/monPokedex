@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\pokemons>
  */
-class PokemonsFactory extends Factory
+class PokemonFactory extends Factory
 {
     /**
      * Define the model's default state.

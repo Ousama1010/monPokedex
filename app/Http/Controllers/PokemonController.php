@@ -26,12 +26,17 @@ class PokemonController extends Controller
     {
         $data = $request->validated();
         if ($request->hasFile('img_path')) {
-            $data['img_path'] = $request->file('img_path')->store('images', 'public');
+            $file = $request->file('img_path');
+            dd($file, $file->isValid(), $file->getPathname());
+        } else {
+            dd('No file received');
         }
 
         $pokemon = Pokemon::create($data);
         return redirect()->route('pokemons.index')->with('success', 'Pokemon added successfully.');
     }
+
+
 
     public function show(Pokemon $pokemon)
     {

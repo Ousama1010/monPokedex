@@ -1,26 +1,26 @@
 <!-- resources/views/welcome.blade.php -->
 <x-guest-layout>
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
+    <div class="w-full px-4 lg:px-8 py-12">
         <div class="bg-white overflow-hidden shadow-md sm:rounded-lg p-8">
             <div class="text-center mt-10 text-4xl font-extrabold text-blue-600 mb-8" style="font-family: 'Roboto', sans-serif;">
                 Liste des Pokémons
             </div>
 
-            <form method="GET" action="{{ route('pokedex.index') }}" class="mb-8 flex justify-center space-x-4">
-                <input type="text" name="search" placeholder="Rechercher un Pokémon" class="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ request('search') }}">
-                <select name="primary_type" class="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <form method="GET" action="{{ route('pokedex.index') }}" class="mb-8 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <input type="text" name="search" placeholder="Rechercher un Pokémon" class="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto" value="{{ request('search') }}">
+                <select name="primary_type" class="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto">
                     <option value="">Type Primaire</option>
                     @foreach ($types as $type)
                         <option value="{{ $type->id }}" {{ request('primary_type') == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
                     @endforeach
                 </select>
-                <select name="secondary_type" class="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <select name="secondary_type" class="bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto">
                     <option value="">Type Secondaire</option>
                     @foreach ($types as $type)
                         <option value="{{ $type->id }}" {{ request('secondary_type') == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
                     @endforeach
                 </select>
-                <button type="submit" class="bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600 transition">Rechercher</button>
+                <button type="submit" class="bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600 transition w-full sm:w-auto">Rechercher</button>
             </form>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

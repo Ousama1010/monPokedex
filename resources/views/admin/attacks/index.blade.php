@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-2xl text-white leading-tight bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-6 rounded-lg">
             {{ __('Liste des Attaques') }}
         </h2>
     </x-slot>
@@ -11,10 +11,10 @@
                 <div class="p-6 bg-gray-50 border-b border-gray-200 rounded-t-lg">
                     <div class="flex justify-between items-center">
                         <div class="text-2xl font-semibold text-gray-700">
-                            Attaques disponibles
+                            Attaques disponibles :
                         </div>
                         <a href="{{ route('attacks.create') }}"
-                            class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition">
+                            class="bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:from-green-500 hover:to-blue-600 transition">
                             Ajouter une attaque
                         </a>
                     </div>
@@ -38,7 +38,7 @@
                                 <td class="py-3 px-4 text-left">{{ $attack->damage }}</td>
                                 <td class="py-3 px-4 text-left">{{ $attack->description }}</td>
                                 <td class="py-3 px-4 text-left">
-                                    <img src="{{ Storage::url($attack->img_path) }}" alt="illustration de l'attaque" class="h-10 w-10 rounded-full">
+                                    <img src="{{ Storage::url($attack->img_path) }}" alt="illustration de l'attaque" class="h-20 w-20 object-cover rounded-lg">
                                 </td>
                                 <td class="py-3 px-4 text-left">{{ $attack->type->name }}</td>
                                 <td class="py-3 px-4 text-left">
@@ -46,7 +46,9 @@
                                         <a href="{{ route('attacks.edit', $attack->id) }}" class="text-blue-500 hover:text-blue-700">
                                             <x-heroicon-o-pencil class="w-5 h-5" />
                                         </a>
-                                        <button onclick="confirmDeletion({{ $attack->id }})" class="text-red-500 hover:text-red-700">
+                                        <button x-data="{ id: {{ $attack->id }} }"
+                                                x-on:click.prevent="window.selected = id; $dispatch('open-modal', 'confirm-attack-deletion');"
+                                                type="button" class="text-red-500 hover:text-red-700">
                                             <x-heroicon-o-trash class="w-5 h-5" />
                                         </button>
                                     </div>

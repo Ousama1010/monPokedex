@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Pokemons') }}
+        <h2 class="font-semibold text-2xl text-white leading-tight bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-6 rounded-lg">
+            {{ __('Liste des Pokémons') }}
         </h2>
     </x-slot>
 
@@ -11,10 +11,12 @@
                 <div class="p-6 bg-gray-50 border-b border-gray-200 rounded-t-lg">
                     <div class="flex justify-between items-center">
                         <div class="text-2xl font-semibold text-gray-700">
-                            Liste des Pokémon
+                            Pokémons disponibles :
                         </div>
                         <a href="{{ route('pokemons.create') }}"
-                            class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition">Ajouter un Pokémon</a>
+                            class="bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:from-green-500 hover:to-blue-600 transition">
+                            Ajouter un Pokémon
+                        </a>
                     </div>
                 </div>
                 <div class="p-6">
@@ -80,13 +82,13 @@
                 </p>
 
                 <div class="mt-6 flex justify-end">
-                    <x-secondary-button x-on:click="$dispatch('close')">
+                    <button type="button" class="bg-gray-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-600 transition"
+                        x-on:click="$dispatch('close')">
                         Annuler
-                    </x-secondary-button>
-
-                    <x-danger-button class="ml-3" type="submit">
+                    </button>
+                    <button type="submit" class="bg-red-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-600 transition ml-3">
                         Supprimer
-                    </x-danger-button>
+                    </button>
                 </div>
             </form>
         </x-modal>

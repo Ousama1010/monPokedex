@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="flex justify-between items-center mb-6">
                         <div class="text-3xl font-bold text-gray-700">
-                            Liste des types
+                            Types disponibles :
                         </div>
                         <a href="{{ route('types.create') }}"
                             class="bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:from-green-500 hover:to-blue-600 transition">

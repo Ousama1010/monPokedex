@@ -54,7 +54,7 @@
                             <div>
                                 <label for="img_path" class="block font-medium text-sm text-gray-700">Image</label>
                                 @if ($pokemon->img_path)
-                                    <img src="{{ Storage::url($pokemon->img_path) }}" alt="Image de {{ $pokemon->name }}" class="h-24 w-24 rounded-full object-cover mt-2">
+                                    <img src="{{ asset('storage/' . $pokemon->img_path) }}" alt="Image de {{ $pokemon->name }}" class="h-24 w-24 rounded-full object-cover mt-2">
                                 @endif
                                 <input id="img_path" type="file" name="img_path" class="mt-4 block w-full rounded-md shadow-sm border-gray-300" />
                                 @error('img_path')

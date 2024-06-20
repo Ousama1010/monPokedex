@@ -41,7 +41,7 @@
                                     <td class="py-3 px-4 text-left">{{ $pokemon->weight }}</td>
                                     <td class="py-3 px-4 text-left">{{ $pokemon->height }}</td>
                                     <td class="py-3 px-4 text-left">
-                                        <img src="{{ Storage::url($pokemon->img_path) }}" alt="Image de {{ $pokemon->name }}" class="h-10 w-10 rounded-full">
+                                        <img src="{{ asset('storage/' . $pokemon->img_path) }}" alt="Image de {{ $pokemon->name }}" class="h-10 w-10 rounded-full">
                                     </td>
                                     <td class="py-3 px-4 text-left">{{ $pokemon->primaryType->name }}</td>
                                     <td class="py-3 px-4 text-left">{{ $pokemon->secondaryType->name ?? 'N/A' }}</td>

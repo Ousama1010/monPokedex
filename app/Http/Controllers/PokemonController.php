@@ -25,16 +25,32 @@ class PokemonController extends Controller
     public function store(PokemonStoreRequest $request)
     {
         $data = $request->validated();
+
+        // Vérifiez si un fichier est présent dans la requête
         if ($request->hasFile('img_path')) {
             $file = $request->file('img_path');
-            dd($file, $file->isValid(), $file->getPathname());
+
+            // Vérifiez si le fichier est valide
+            if ($file->isValid()) {
+                // Essayez de stocker le fichier et capturez les erreurs éventuelles
+                try {
+                    $path = $file->store('images', 'public');
+                    $data['img_path'] = $path;
+                } catch (\Exception $e) {
+                    return redirect()->back()->withErrors(['img_path' => 'Erreur lors du téléchargement de l\'image.']);
+                }
+            } else {
+                return redirect()->back()->withErrors(['img_path' => 'Le fichier téléchargé n\'est pas valide.']);
+            }
         } else {
-            dd('No file received');
+            return redirect()->back()->withErrors(['img_path' => 'Aucun fichier reçu.']);
         }
 
+        // Créez le Pokémon avec les données validées
         $pokemon = Pokemon::create($data);
-        return redirect()->route('pokemons.index')->with('success', 'Pokemon added successfully.');
+        return redirect()->route('pokemons.index')->with('success', 'Pokemon ajouté avec succès.');
     }
+
 
 
 

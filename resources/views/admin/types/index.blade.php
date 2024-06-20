@@ -35,7 +35,7 @@
                                         <td class="py-3 px-6 text-left">{{ $type->name }}</td>
                                         <td class="py-3 px-6 text-left">{{ $type->color }}</td>
                                         <td class="py-3 px-6 text-left">
-                                            <img src="{{ Storage::url($type->img_path) }}" alt="illustration du type" class="h-10 w-10 rounded-full">
+                                            <img src="{{ asset('storage/' . $type->img_path) }}" alt="illustration du type" class="h-10 w-10 rounded-full">
                                         </td>
                                         <td class="py-3 px-6 text-left">
                                             <div class="flex item-center space-x-2">

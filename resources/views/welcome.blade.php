@@ -29,7 +29,7 @@
                 @foreach ($pokemons as $pokemon)
                     <a href="{{ route('pokedex.show', $pokemon->id) }}" class="block bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition">
                         <div class="flex justify-center mb-4">
-                            <img src="{{ Storage::url($pokemon->img_path) }}" alt="Image de {{ $pokemon->name }}" class="h-32 w-32 object-cover rounded-full border-4 border-indigo-500">
+                            <img src="{{ asset('storage/' . $pokemon->img_path) }}" alt="Image de {{ $pokemon->name }}" class="h-32 w-32 object-cover rounded-full border-4 border-indigo-500">
                         </div>
                         <div class="text-center">
                             <h3 class="text-xl font-semibold text-gray-800">{{ $pokemon->name }}</h3>

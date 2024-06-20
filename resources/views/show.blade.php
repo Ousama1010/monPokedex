@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="flex flex-col lg:flex-row items-center lg:items-start lg:space-x-8">
-                <img src="{{ Storage::url($pokemon->img_path) }}" alt="Image de {{ $pokemon->name }}" class="h-80 w-80 object-cover rounded-full mb-4 lg:mb-0 border-4 border-blue-600">
+                <img src="{{ asset('storage/' . $pokemon->img_path) }}" alt="Image de {{ $pokemon->name }}" class="h-80 w-80 object-cover rounded-full mb-4 lg:mb-0 border-4 border-blue-600">
                 <div class="flex-1">
                     <h3 class="text-xl font-bold text-gray-600">N° {{ str_pad($pokemon->id, 4, '0', STR_PAD_LEFT) }}</h3>
                     <div class="mt-2 flex justify-center lg:justify-start space-x-2">
@@ -29,7 +29,7 @@
                         <ul class="list-none p-0 mt-2">
                             @foreach ($pokemon->primaryType->attacks as $attack)
                                 <li class="flex text-gray-700 bg-gray-100 px-4 py-2 rounded-lg mb-2 items-center shadow" title="{{ $attack->description }}">
-                                    <img src="{{ Storage::url($attack->img_path) }}" alt="Image de {{ $attack->name }}" class="h-12 w-12 mr-4 rounded-full border-2 border-blue-600">
+                                    <img src="{{ asset('storage/' . $attack->img_path) }}" alt="Image de {{ $attack->name }}" class="h-12 w-12 mr-4 rounded-full border-2 border-blue-600">
                                     <div>
                                         <p class="font-semibold">{{ $attack->name }} <span class="text-xs text-gray-500">({{ $attack->type->name }})</span></p>
                                         <p class="text-sm">Dégâts: {{ $attack->damage }}</p>
@@ -39,7 +39,7 @@
                             @if ($pokemon->secondaryType)
                                 @foreach ($pokemon->secondaryType->attacks as $attack)
                                     <li class="flex text-gray-700 bg-gray-100 px-4 py-2 rounded-lg mb-2 items-center shadow" title="{{ $attack->description }}">
-                                        <img src="{{ Storage::url($attack->img_path) }}" alt="Image de {{ $attack->name }}" class="h-12 w-12 mr-4 rounded-full border-2 border-blue-600">
+                                        <img src="{{ asset('storage/' . $attack->img_path) }}" alt="Image de {{ $attack->name }}" class="h-12 w-12 mr-4 rounded-full border-2 border-blue-600">
                                         <div>
                                             <p class="font-semibold">{{ $attack->name }} <span class="text-xs text-gray-500">({{ $attack->type->name }})</span></p>
                                             <p class="text-sm">Dégâts: {{ $attack->damage }}</p>

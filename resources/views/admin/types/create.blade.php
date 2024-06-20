@@ -18,13 +18,13 @@
 
                 <div class="flex flex-col space-y-2">
                     <label for="name" class="text-sm font-semibold text-gray-600">{{ __('Nom') }}</label>
-                    <input id="name" type="text" name="name" class="border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500" :value="old('name')" autofocus />
+                    <input id="name" type="text" name="name" class="border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500" value="{{ old('name') }}" autofocus />
                     <span class="text-red-500 text-sm mt-1">{{ $errors->first('name') }}</span>
                 </div>
 
                 <div class="flex flex-col space-y-2">
                     <label for="color" class="text-sm font-semibold text-gray-600">{{ __('Couleur') }}</label>
-                    <input id="color" type="text" name="color" class="border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500" :value="old('color')" />
+                    <input id="color" type="text" name="color" class="border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-blue-500" value="{{ old('color') }}" />
                     <span class="text-red-500 text-sm mt-1">{{ $errors->first('color') }}</span>
                 </div>
 

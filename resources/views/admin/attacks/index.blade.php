@@ -38,7 +38,7 @@
                                 <td class="py-3 px-4 text-left">{{ $attack->damage }}</td>
                                 <td class="py-3 px-4 text-left">{{ $attack->description }}</td>
                                 <td class="py-3 px-4 text-left">
-                                    <img src="{{ Storage::url($attack->img_path) }}" alt="illustration de l'attaque" class="h-20 w-20 object-cover rounded-lg">
+                                    <img src="{{ asset('storage/' . $attack->img_path) }}" alt="illustration de l'attaque" class="h-20 w-20 object-cover rounded-lg">
                                 </td>
                                 <td class="py-3 px-4 text-left">{{ $attack->type->name }}</td>
                                 <td class="py-3 px-4 text-left">
